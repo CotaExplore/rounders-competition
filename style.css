@@ -1,5 +1,9 @@
 /* Rounders competition — page styles on top of the main-site tokens/components. */
 
+/* No horizontal scroll ever — clip, not hidden, so sticky still works.
+   Also guards against the width of Google Translate's injected tooltip. */
+html, body { overflow-x: clip; }
+
 body {
   min-height: 100vh;
   background: var(--bg-color);
@@ -53,7 +57,7 @@ body {
   margin-bottom: 4px;
 }
 .comp-hero .strap { color: var(--hero-muted); font-size: 0.95rem; margin: 0; }
-.comp-hero .organiser-credit { color: var(--hero-accent, #d1a928); font-weight: 600; }
+.comp-hero .organiser-credit { color: #e5c25a; font-weight: 600; }
 
 .chips {
   display: flex;
@@ -121,12 +125,28 @@ body {
   transform: scale(1.05);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
+.nav-pill:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
 .nav-pill.is-active {
   background: linear-gradient(135deg, #d9b23a, #c69c1f);
   color: #1c2333;
   border-color: rgba(255, 255, 255, 0.45);
 }
 .nav-pill i { font-size: 0.9em; }
+
+/* Mobile: one swipeable pill row instead of a tall wrapped block */
+@media (max-width: 767.98px) {
+  .pill-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pill-nav::-webkit-scrollbar { display: none; }
+}
 
 a.nav-pill.pill-gold {
   background: linear-gradient(135deg, rgba(217, 178, 58, 0.96), rgba(198, 156, 31, 0.94));
@@ -198,13 +218,14 @@ p { margin: 8px 0; }
 /* Fixture cards — glass */
 .fixture-list { display: grid; gap: 10px; }
 
+/* Cards keep the glass look via translucent surfaces + shadow; blur is
+   reserved for the nav/hero/save-bar so a page of cards stays smooth on
+   older phones. */
 .fixture {
   background: var(--surface-bg);
   border: 1px solid var(--surface-border);
   border-radius: 1rem;
   padding: 12px 14px;
-  backdrop-filter: blur(calc(var(--glass-blur) - 10px)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(calc(var(--glass-blur) - 10px)) saturate(var(--glass-saturate));
   box-shadow: var(--surface-shadow);
 }
 .fx-meta { color: var(--muted); font-size: 0.78rem; margin-bottom: 6px; }
@@ -234,8 +255,6 @@ main table {
   width: 100%;
   border-collapse: collapse;
   background: var(--surface-bg);
-  backdrop-filter: blur(calc(var(--glass-blur) - 10px)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(calc(var(--glass-blur) - 10px)) saturate(var(--glass-saturate));
   border: 1px solid var(--surface-border);
   border-radius: 1rem;
   overflow: hidden;
@@ -324,6 +343,24 @@ main td.tname, main th.tname { text-align: left; }
   cursor: pointer;
 }
 .save-bar button:disabled { opacity: 0.5; }
+
+/* Solid fallbacks where backdrop blur is unavailable or unwanted */
+@supports not (backdrop-filter: blur(1px)) {
+  .pill-nav, .save-bar { background: rgba(25, 51, 96, 0.97); }
+  .chip { background: rgba(255, 255, 255, 0.16); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .pill-nav, .save-bar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(25, 51, 96, 0.97);
+  }
+  .chip {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.16);
+  }
+}
 
 /* ── Accessibility preference helpers (as on the main website) ── */
 a.underline-links { text-decoration: underline !important; }

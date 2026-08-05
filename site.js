@@ -9,9 +9,15 @@ function showView(key) {
   document.querySelectorAll("main .view").forEach(v => {
     v.classList.toggle("is-visible", v.id === "view-" + key);
   });
+  let label = "";
   document.querySelectorAll(".pill-nav .nav-pill[data-view]").forEach(p => {
-    p.classList.toggle("is-active", p.dataset.view === key);
+    const active = p.dataset.view === key;
+    p.classList.toggle("is-active", active);
+    if (active) { p.setAttribute("aria-current", "true"); label = p.textContent.trim(); }
+    else p.removeAttribute("aria-current");
   });
+  const live = document.getElementById("a11y-live");
+  if (live && label) live.textContent = "Showing " + label + ".";
   history.replaceState(null, "", "#" + key);
 }
 
@@ -88,4 +94,8 @@ fetch('data/results.json?t=' + Date.now())
 
     standingsTable(document.getElementById('standings-a'), 'A', results);
     standingsTable(document.getElementById('standings-b'), 'B', results);
+
+    const anyPlayed = Object.values(results).some(isPlayed);
+    const emptyNote = document.getElementById('scores-empty');
+    if (emptyNote) emptyNote.hidden = anyPlayed;
   });
