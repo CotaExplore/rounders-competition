@@ -11,13 +11,15 @@ const TEAMS = {
   "don-c":  { name: "7th Doncaster C", short: "7th Doncaster C", group: "B" }
 };
 
+// Wednesday: all games were actually played in the Sports Barn, in this order
+// (matching the order results were reported), not the original planned slots.
 const FIXTURES = [
-  { id: "w1", day: "Wednesday", time: "20:00 to 20:30", venue: "Sports Barn", a: "misc",   b: "don-c" },
-  { id: "w2", day: "Wednesday", time: "20:00 to 20:30", venue: "Outside",     a: "roch-a", b: "bel-a" },
-  { id: "w3", day: "Wednesday", time: "20:40 to 21:10", venue: "Sports Barn", a: "roch-a", b: "don-a" },
-  { id: "w4", day: "Wednesday", time: "20:40 to 21:10", venue: "Outside",     a: "misc",   b: "bel-c" },
-  { id: "w5", day: "Wednesday", time: "21:20 to 21:50", venue: "Sports Barn", a: "roch-a", b: "don-b" },
-  { id: "w6", day: "Wednesday", time: "22:00 to 22:30", venue: "Sports Barn", a: "misc",   b: "bel-b" },
+  { id: "w3", day: "Wednesday", time: "Game 1", venue: "Sports Barn", a: "roch-a", b: "don-a" },
+  { id: "w5", day: "Wednesday", time: "Game 2", venue: "Sports Barn", a: "roch-a", b: "don-b" },
+  { id: "w1", day: "Wednesday", time: "Game 3", venue: "Sports Barn", a: "misc",   b: "don-c" },
+  { id: "w4", day: "Wednesday", time: "Game 4", venue: "Sports Barn", a: "misc",   b: "bel-c" },
+  { id: "w2", day: "Wednesday", time: "Game 5", venue: "Sports Barn", a: "roch-a", b: "bel-a" },
+  { id: "w6", day: "Wednesday", time: "Game 6", venue: "Sports Barn", a: "misc",   b: "bel-b" },
   { id: "t1", day: "Thursday",  time: "11:00 to 11:30", venue: "Sports Barn", a: "bel-b",  b: "bel-c" },
   { id: "t2", day: "Thursday",  time: "11:00 to 11:30", venue: "Outside",     a: "bel-a",  b: "don-a" },
   { id: "t3", day: "Thursday",  time: "11:40 to 12:10", venue: "Sports Barn", a: "bel-a",  b: "don-b" },

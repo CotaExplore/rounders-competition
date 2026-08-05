@@ -234,9 +234,19 @@ p { margin: 8px 0; }
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  padding: 2px 0;
+  padding: 6px 8px;
+  border-radius: 0.6rem;
 }
-.fx-team.win { font-weight: 700; }
+.fx-team.win {
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(217, 178, 58, 0.22), rgba(198, 156, 31, 0.12));
+  border: 1px solid rgba(198, 156, 31, 0.55);
+}
+.fx-team.win .score { color: #8a6a10; }
+html[data-theme="dark"] .fx-team.win .score,
+html[data-theme="winter"] .fx-team.win .score,
+html[data-theme="autumn"] .fx-team.win .score { color: #f0cf62; }
+.fx-team.win i { color: #c69c1f; margin-right: 2px; }
 .fx-team .score { font-variant-numeric: tabular-nums; min-width: 2ch; text-align: right; }
 
 .tag {
@@ -247,6 +257,8 @@ p { margin: 8px 0; }
   padding: 1px 8px;
   vertical-align: middle;
 }
+.tag-group-A { border-color: #22608a; }
+.tag-group-B { border-color: #9e2a2b; }
 
 /* Tables — glass */
 .table-wrap { overflow-x: auto; border-radius: 1rem; }
@@ -271,6 +283,11 @@ main th {
 }
 main tr:last-child td { border-bottom: none; }
 main td.tname, main th.tname { text-align: left; }
+main tr.standings-leader {
+  background: linear-gradient(135deg, rgba(217, 178, 58, 0.20), rgba(198, 156, 31, 0.08));
+}
+main tr.standings-leader td.tname { font-weight: 800; }
+main tr.standings-leader i.fa-crown { color: #c69c1f; }
 
 .risk-table th, .risk-table td { text-align: left; vertical-align: top; }
 .risk-table td:first-child { font-weight: 600; }

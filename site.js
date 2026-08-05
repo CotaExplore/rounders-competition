@@ -31,16 +31,19 @@ showView((location.hash || "").replace("#", ""));
 function fixtureCard(fx, r, withScores) {
   const nameA = fx.a ? TEAMS[fx.a].short : "Group A Winner";
   const nameB = fx.b ? TEAMS[fx.b].short : "Group B Winner";
+  const group = fx.a ? TEAMS[fx.a].group : null;
   const played = withScores && isPlayed(r);
   const winA = played && r.a > r.b;
   const winB = played && r.b > r.a;
   const draw = played && r.a === r.b;
-  return '<div class="fixture">' +
+  const trophy = '<i class="fa-solid fa-trophy" aria-hidden="true"></i> ';
+  return '<div class="fixture' + (played && !draw ? ' has-winner' : '') + '">' +
     '<div class="fx-meta">' + fx.time + ' &middot; ' + fx.venue +
+      (group ? ' <span class="tag tag-group tag-group-' + group + '">Group ' + group + '</span>' : '') +
       (draw ? ' <span class="tag">Draw</span>' : '') + '</div>' +
-    '<div class="fx-team' + (winA ? ' win' : '') + '"><span>' + nameA + '</span>' +
+    '<div class="fx-team' + (winA ? ' win' : '') + '"><span>' + (winA ? trophy : '') + nameA + '</span>' +
       (played ? '<span class="score">' + formatScore(r.a) + '</span>' : '') + '</div>' +
-    '<div class="fx-team' + (winB ? ' win' : '') + '"><span>' + nameB + '</span>' +
+    '<div class="fx-team' + (winB ? ' win' : '') + '"><span>' + (winB ? trophy : '') + nameB + '</span>' +
       (played ? '<span class="score">' + formatScore(r.b) + '</span>' : '') + '</div>' +
     '</div>';
 }
@@ -66,15 +69,20 @@ function standingsTable(el, group, results) {
   const rows = computeStandings(group, results);
   let html = '<tr><th class="tname">Team</th><th title="Played">P</th>' +
     '<th title="Won">W</th><th title="Drawn">D</th><th title="Lost">L</th>' +
-    '<th title="Rounders difference">Diff</th><th title="Rounders scored">For</th>' +
+    '<th title="Rounders scored">For</th><th title="Rounders conceded">Against</th>' +
+    '<th title="For minus Against">Diff</th>' +
     '<th title="Points">Pts</th></tr>';
-  for (const row of rows) {
-    html += '<tr><td class="tname">' + TEAMS[row.team].name +
+  rows.forEach((row, i) => {
+    const leader = i === 0 && row.p > 0;
+    html += '<tr class="' + (leader ? 'standings-leader' : '') + '"><td class="tname">' +
+      (leader ? '<i class="fa-solid fa-crown" aria-hidden="true"></i> ' : '') +
+      TEAMS[row.team].name +
       (row.tie ? ' <span class="tag">tie-break</span>' : '') + '</td>' +
       '<td>' + row.p + '</td><td>' + row.w + '</td><td>' + row.d + '</td>' +
-      '<td>' + row.l + '</td><td>' + formatDiff(row.diff) + '</td>' +
-      '<td>' + formatScore(row.f) + '</td><td>' + row.pts + '</td></tr>';
-  }
+      '<td>' + row.l + '</td>' +
+      '<td>' + formatScore(row.f) + '</td><td>' + formatScore(row.a) + '</td>' +
+      '<td>' + formatDiff(row.diff) + '</td><td>' + row.pts + '</td></tr>';
+  });
   el.innerHTML = html;
 }
 
