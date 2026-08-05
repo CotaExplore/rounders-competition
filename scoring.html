@@ -23,42 +23,24 @@
 </head>
 <body data-page="scoring">
 
-<nav class="navbar navbar-expand-lg nav-glass" aria-label="Main navigation">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="assets/media/i000-logo_centre-mostpages-nav-residential.webp"
-        alt="The Boys' Brigade North West District Training and Activity Centre" class="nav-logo" />
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-      aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon toggle"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav nav-main-links ms-auto mb-2 mb-lg-0 text-center">
-        <li class="nav-item">
-          <a class="nav-link nav-glass-btn toggle" href="index.html">
-            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-            Back to public site
-          </a>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-link nav-glass-btn toggle" data-bs-toggle="modal"
-            data-bs-target="#accessModal">
-            <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
-            Accessibility Tools
-          </button>
-        </li>
-      </ul>
+<header class="comp-hero" data-global-hero>
+  <div class="hero-row">
+    <img class="hero-logo" src="assets/media/i000-logo_centre-mostpages-nav-residential.webp"
+      alt="The Boys' Brigade North West District Training and Activity Centre">
+    <div class="hero-text-block">
+      <h1>Organiser scoring</h1>
+      <p class="strap organiser-credit">Organised by Ashley, 7th Doncaster Boys' Brigade</p>
+      <p class="strap">Enter scores in halves &middot; Save commits them to the site</p>
     </div>
   </div>
-</nav>
-
-<header class="comp-hero">
-  <h1>Organiser scoring</h1>
-  <p class="strap">Enter scores in halves &middot; Save commits them to the site</p>
 </header>
+
+<nav class="pill-nav" aria-label="Main navigation">
+  <a class="nav-pill nav-link" href="index.html">
+    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to public site</a>
+  <button type="button" class="nav-pill" data-bs-toggle="modal" data-bs-target="#accessModal">
+    <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Accessibility Tools</button>
+</nav>
 
 <main>
 
@@ -74,11 +56,11 @@
 
 <section>
   <h3>Wednesday</h3>
-  <div id="score-wednesday"></div>
+  <div id="score-wednesday" class="score-day-grid"></div>
   <h3>Thursday</h3>
-  <div id="score-thursday"></div>
+  <div id="score-thursday" class="score-day-grid"></div>
   <h3>Final</h3>
-  <div id="score-final"></div>
+  <div id="score-final" class="score-day-grid"></div>
 </section>
 
 <div class="save-bar">

@@ -1,20 +1,54 @@
-// Public page — renders fixtures, scores and standings from data/results.json.
+// Public page — view switching (booking-app style pill nav) and rendering of
+// fixtures, scores and standings from data/results.json.
 
-function fixtureCard(fx, r) {
-  const played = isPlayed(r);
+// ── View switching ─────────────────────────────────────────
+const VIEWS = ["schedule", "scores", "rules", "safety", "risk"];
+
+function showView(key) {
+  if (!VIEWS.includes(key)) key = "schedule";
+  document.querySelectorAll("main .view").forEach(v => {
+    v.classList.toggle("is-visible", v.id === "view-" + key);
+  });
+  document.querySelectorAll(".pill-nav .nav-pill[data-view]").forEach(p => {
+    p.classList.toggle("is-active", p.dataset.view === key);
+  });
+  history.replaceState(null, "", "#" + key);
+}
+
+document.querySelectorAll(".pill-nav .nav-pill[data-view]").forEach(p => {
+  p.addEventListener("click", () => showView(p.dataset.view));
+});
+
+showView((location.hash || "").replace("#", ""));
+
+// ── Rendering ──────────────────────────────────────────────
+function fixtureCard(fx, r, withScores) {
+  const nameA = fx.a ? TEAMS[fx.a].short : "Group A Winner";
+  const nameB = fx.b ? TEAMS[fx.b].short : "Group B Winner";
+  const played = withScores && isPlayed(r);
   const winA = played && r.a > r.b;
   const winB = played && r.b > r.a;
   const draw = played && r.a === r.b;
-  const nameA = fx.a ? TEAMS[fx.a].short : "Group A Winner";
-  const nameB = fx.b ? TEAMS[fx.b].short : "Group B Winner";
   return '<div class="fixture">' +
     '<div class="fx-meta">' + fx.time + ' &middot; ' + fx.venue +
       (draw ? ' <span class="tag">Draw</span>' : '') + '</div>' +
-    '<div class="fx-team' + (winA ? ' win' : '') + '"><span>' + nameA +
-      '</span><span class="score">' + (played ? formatScore(r.a) : '') + '</span></div>' +
-    '<div class="fx-team' + (winB ? ' win' : '') + '"><span>' + nameB +
-      '</span><span class="score">' + (played ? formatScore(r.b) : '') + '</span></div>' +
+    '<div class="fx-team' + (winA ? ' win' : '') + '"><span>' + nameA + '</span>' +
+      (played ? '<span class="score">' + formatScore(r.a) + '</span>' : '') + '</div>' +
+    '<div class="fx-team' + (winB ? ' win' : '') + '"><span>' + nameB + '</span>' +
+      (played ? '<span class="score">' + formatScore(r.b) + '</span>' : '') + '</div>' +
     '</div>';
+}
+
+function renderDay(elId, day, results, withScores) {
+  document.getElementById(elId).innerHTML =
+    FIXTURES.filter(f => f.day === day)
+      .map(f => fixtureCard(f, results[f.id], withScores)).join('');
+}
+
+function renderFinal(elId, results, withScores) {
+  const fx = { time: FINAL.time, venue: FINAL.venue, a: null, b: null };
+  document.getElementById(elId).innerHTML =
+    fixtureCard(fx, results.final, withScores);
 }
 
 function formatDiff(n) {
@@ -36,31 +70,21 @@ function standingsTable(el, group, results) {
       '<td>' + formatScore(row.f) + '</td><td>' + row.pts + '</td></tr>';
   }
   el.innerHTML = html;
-  const anyTie = rows.some(r => r.tie);
-  if (anyTie) {
-    el.insertAdjacentHTML('afterend',
-      '<p class="note">Teams marked tie-break are still level after rounders difference ' +
-      'and total rounders scored — a short tie-break decides the group position.</p>');
-  }
 }
 
 fetch('data/results.json?t=' + Date.now())
   .then(resp => resp.json())
   .catch(() => ({}))
   .then(results => {
-    document.getElementById('fixtures-wednesday').innerHTML =
-      FIXTURES.filter(f => f.day === 'Wednesday').map(f => fixtureCard(f, results[f.id])).join('');
-    document.getElementById('fixtures-thursday').innerHTML =
-      FIXTURES.filter(f => f.day === 'Thursday').map(f => fixtureCard(f, results[f.id])).join('');
+    // Schedule view: who plays whom, when and where — no scores.
+    renderDay('sched-wednesday', 'Wednesday', results, false);
+    renderDay('sched-thursday', 'Thursday', results, false);
+    renderFinal('sched-final', results, false);
 
-    const finalFx = { time: FINAL.time, venue: FINAL.venue, a: null, b: null };
-    document.getElementById('fixtures-final').innerHTML = fixtureCard(finalFx, results.final);
-
-    const fr = results.final;
-    if (isPlayed(fr)) {
-      document.getElementById('final-teams').textContent =
-        'Group A Winner ' + formatScore(fr.a) + ' v ' + formatScore(fr.b) + ' Group B Winner';
-    }
+    // Live scores view.
+    renderDay('scores-wednesday', 'Wednesday', results, true);
+    renderDay('scores-thursday', 'Thursday', results, true);
+    renderFinal('scores-final', results, true);
 
     standingsTable(document.getElementById('standings-a'), 'A', results);
     standingsTable(document.getElementById('standings-b'), 'B', results);

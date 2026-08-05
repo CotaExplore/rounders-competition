@@ -23,93 +23,123 @@
 </head>
 <body data-page="index">
 
-<nav class="navbar navbar-expand-lg nav-glass" aria-label="Main navigation">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-      <img src="assets/media/i000-logo_centre-mostpages-nav-residential.webp"
-        alt="The Boys' Brigade North West District Training and Activity Centre" class="nav-logo" />
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-      aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon toggle"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav nav-main-links ms-auto mb-2 mb-lg-0 text-center">
-        <li class="nav-item">
-          <a class="nav-link nav-glass-btn toggle" href="#fixtures">
-            <i class="fa-solid fa-baseball-bat-ball" aria-hidden="true"></i>
-            Fixtures &amp; Scores
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glass-btn toggle" href="#rules">
-            <i class="fa-solid fa-list-check" aria-hidden="true"></i>
-            Rules
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glass-btn toggle" href="#safety">
-            <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
-            Safeguarding &amp; First Aid
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glass-btn toggle" href="#risk">
-            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-            Risk Assessments
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glass-btn toggle" href="Rounders_Competition_Team_Guide.pdf" download>
-            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
-            Download Team Guide
-          </a>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-link nav-glass-btn toggle" data-bs-toggle="modal"
-            data-bs-target="#accessModal">
-            <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
-            Accessibility Tools
-          </button>
-        </li>
-      </ul>
+<header class="comp-hero" data-global-hero>
+  <div class="hero-row">
+    <img class="hero-logo" src="assets/media/i000-logo_centre-mostpages-nav-residential.webp"
+      alt="The Boys' Brigade North West District Training and Activity Centre">
+    <div class="hero-text-block">
+      <h1>Rounders Competition</h1>
+      <p class="strap organiser-credit">Organised by Ashley, 7th Doncaster Boys' Brigade</p>
+      <p class="strap">Group matches Wednesday and Thursday &middot; Final: Thursday 8:00 pm</p>
     </div>
   </div>
-</nav>
-
-<header class="comp-hero">
-  <h1>Rounders Competition</h1>
-  <p class="strap">Group matches Wednesday and Thursday &middot; Final: Thursday 8:00 pm</p>
   <div class="chips">
-    <div class="chip"><strong>30 minutes</strong><span>per match</span></div>
-    <div class="chip"><strong>6 players</strong><span>per team</span></div>
-    <div class="chip"><strong>3 umpires</strong><span>one from each BB Company</span></div>
+    <div class="chip"><span class="chip-big">30 minutes</span><span class="chip-sub">per match</span></div>
+    <div class="chip"><span class="chip-big">6 players</span><span class="chip-sub">per team</span></div>
+    <div class="chip"><span class="chip-big">3 umpires</span><span class="chip-sub">one from each BB Company</span></div>
   </div>
 </header>
 
+<nav class="pill-nav" aria-label="Main navigation">
+  <button type="button" class="nav-pill" data-view="schedule">
+    <i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Schedule</button>
+  <button type="button" class="nav-pill" data-view="scores">
+    <i class="fa-solid fa-baseball-bat-ball" aria-hidden="true"></i> Live Scores</button>
+  <button type="button" class="nav-pill" data-view="rules">
+    <i class="fa-solid fa-list-check" aria-hidden="true"></i> Rules</button>
+  <button type="button" class="nav-pill" data-view="safety">
+    <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Safety &amp; First Aid</button>
+  <button type="button" class="nav-pill" data-view="risk">
+    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Risk Assessments</button>
+  <a class="nav-pill nav-link pill-gold" href="Rounders_Competition_Team_Guide.pdf" download>
+    <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Download Team Guide</a>
+  <button type="button" class="nav-pill" data-bs-toggle="modal" data-bs-target="#accessModal">
+    <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Accessibility Tools</button>
+</nav>
+
 <main>
 
-<section id="fixtures">
-  <div class="final-banner" id="final-banner">
+<!-- ── View: Schedule ─────────────────────────────────────── -->
+<section class="view" id="view-schedule">
+  <div class="final-banner" data-global-hero>
     <div class="final-label">Grand Final</div>
     <div class="final-detail">Thursday 20:00 to 20:30 &middot; Sports Barn</div>
-    <div class="final-teams" id="final-teams">Group A Winner v Group B Winner</div>
+    <div class="final-teams">Group A Winner v Group B Winner</div>
   </div>
 
-  <h2>Fixtures and scores</h2>
+  <h2>Schedule</h2>
   <p class="note">30-minute match, 15 minutes batting per team, immediate changeover, no
   half-time, 10 minutes between fixtures. Every team has at least one outside group game.</p>
 
-  <h3>Wednesday</h3>
-  <div class="fixture-list" id="fixtures-wednesday"></div>
+  <div class="days-grid">
+    <div>
+      <h3>Wednesday</h3>
+      <div class="fixture-list" id="sched-wednesday"></div>
+    </div>
+    <div>
+      <h3>Thursday</h3>
+      <div class="fixture-list" id="sched-thursday"></div>
+    </div>
+    <div>
+      <h3>Final</h3>
+      <div class="fixture-list" id="sched-final"></div>
+    </div>
+  </div>
 
-  <h3>Thursday</h3>
-  <div class="fixture-list" id="fixtures-thursday"></div>
+  <h2>In the event of rain</h2>
+  <p><strong>Wet weather rule.</strong> If it is raining at the start of a session, all group games are played in the Sports Barn and each team's batting is reduced to 8 minutes, so each match lasts 16 minutes, with 4 minutes between games. The final is already played in the Sports Barn and is not affected.</p>
 
-  <h3>Final</h3>
-  <div class="fixture-list" id="fixtures-final"></div>
+  <div class="two-col">
+    <div>
+      <p><strong>Wednesday.</strong> If it is raining at 8:00 pm, Wednesday games are played as follows.</p>
+      <div class="table-wrap">
+      <table class="rain-table">
+        <tr><th>Time</th><th>Sports Barn</th></tr>
+        <tr><td>20:00 to 20:16</td><td>2nd/82nd Misc versus 7th Doncaster C</td></tr>
+        <tr><td>20:20 to 20:36</td><td>2nd Rochdale A versus 82nd Belfast A</td></tr>
+        <tr><td>20:40 to 20:56</td><td>2nd/82nd Misc versus 82nd Belfast C</td></tr>
+        <tr><td>21:00 to 21:16</td><td>2nd Rochdale A versus 7th Doncaster A</td></tr>
+        <tr><td>21:20 to 21:36</td><td>2nd/82nd Misc versus 82nd Belfast B</td></tr>
+        <tr><td>21:40 to 21:56</td><td>2nd Rochdale A versus 7th Doncaster B</td></tr>
+      </table>
+      </div>
+    </div>
+    <div>
+      <p><strong>Thursday.</strong> If it is raining at 11:00 am, Thursday group games are played as follows.</p>
+      <div class="table-wrap">
+      <table class="rain-table">
+        <tr><th>Time</th><th>Sports Barn</th></tr>
+        <tr><td>11:00 to 11:16</td><td>82nd Belfast B versus 82nd Belfast C</td></tr>
+        <tr><td>11:20 to 11:36</td><td>82nd Belfast A versus 7th Doncaster A</td></tr>
+        <tr><td>11:40 to 11:56</td><td>82nd Belfast B versus 7th Doncaster C</td></tr>
+        <tr><td>12:00 to 12:16</td><td>82nd Belfast A versus 7th Doncaster B</td></tr>
+        <tr><td>12:20 to 12:36</td><td>82nd Belfast C versus 7th Doncaster C</td></tr>
+        <tr><td>12:40 to 12:56</td><td>7th Doncaster A versus 7th Doncaster B</td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── View: Live Scores ──────────────────────────────────── -->
+<section class="view" id="view-scores">
+  <h2>Live scores</h2>
+  <p class="note">Scores appear here as the organiser enters them. Refresh the page for the latest.</p>
+
+  <div class="days-grid">
+    <div>
+      <h3>Wednesday</h3>
+      <div class="fixture-list" id="scores-wednesday"></div>
+    </div>
+    <div>
+      <h3>Thursday</h3>
+      <div class="fixture-list" id="scores-thursday"></div>
+    </div>
+    <div>
+      <h3>Final</h3>
+      <div class="fixture-list" id="scores-final"></div>
+    </div>
+  </div>
 
   <h2>Standings</h2>
   <div class="standings">
@@ -127,91 +157,110 @@
   decides the group position before the final.</p>
 </section>
 
-<section id="rules">
-  <h2>Competition rules</h2>
-  <p><strong>Bowling.</strong> The ball must be bowled underarm only. Overarm bowling is not allowed.</p>
-  <p><strong>Running.</strong> Runners go around the outside of the posts, following the running line. Only one runner is allowed at each post at a time. Runners must not overtake the player ahead of them, including where that player is held up or waiting at a post.</p>
-  <p><strong>Scoring.</strong> A batter scores one rounder for hitting the ball and running the full circuit back to the start. A batter scores half a rounder for hitting the ball and reaching second or third post, or for running the full circuit without having hit the ball.</p>
-  <p><strong>Out.</strong> A batter or runner is out if: the ball is caught before it touches the ground; the post they are running to is stumped (a fielder holds the ball at that post) before they reach it; they overtake another runner; or they run inside the posts instead of around the outside.</p>
-  <p><strong>No contact.</strong> There must be no deliberate physical contact between players. Any player who makes deliberate contact is disqualified from that game. If three players from the same team are disqualified in one game, the whole team is disqualified from that game.</p>
-  <p><strong>Weaker hand (fair play handicap).</strong> To keep batting fair between age groups, an older batter must bat with their weaker hand (a right-handed player bats left-handed, and a left-handed player bats right-handed) in these situations: a Senior batting against a Company or Junior bowler; a Leader batting against a Senior, Company or Junior bowler; and a Company member batting against a Junior bowler. In all other cases players bat with their normal hand.</p>
+<!-- ── View: Rules ────────────────────────────────────────── -->
+<section class="view" id="view-rules">
+  <div class="two-col">
+    <div>
+      <h2>Competition rules</h2>
+      <p><strong>Bowling.</strong> The ball must be bowled underarm only. Overarm bowling is not allowed.</p>
+      <p><strong>Running.</strong> Runners go around the outside of the posts, following the running line. Only one runner is allowed at each post at a time. Runners must not overtake the player ahead of them, including where that player is held up or waiting at a post.</p>
+      <p><strong>Scoring.</strong> A batter scores one rounder for hitting the ball and running the full circuit back to the start. A batter scores half a rounder for hitting the ball and reaching second or third post, or for running the full circuit without having hit the ball.</p>
+      <p><strong>Out.</strong> A batter or runner is out if: the ball is caught before it touches the ground; the post they are running to is stumped (a fielder holds the ball at that post) before they reach it; they overtake another runner; or they run inside the posts instead of around the outside.</p>
+      <p><strong>No contact.</strong> There must be no deliberate physical contact between players. Any player who makes deliberate contact is disqualified from that game. If three players from the same team are disqualified in one game, the whole team is disqualified from that game.</p>
+      <p><strong>Weaker hand (fair play handicap).</strong> To keep batting fair between age groups, an older batter must bat with their weaker hand (a right-handed player bats left-handed, and a left-handed player bats right-handed) in these situations: a Senior batting against a Company or Junior bowler; a Leader batting against a Senior, Company or Junior bowler; and a Company member batting against a Junior bowler. In all other cases players bat with their normal hand.</p>
+    </div>
+    <div>
+      <h2>Leader participation</h2>
+      <p><strong>Batting.</strong> Leaders may bat, but they do not run. When a Leader bats, a Senior or Company member is designated to run the circuit on their behalf.</p>
+      <p><strong>Fielding.</strong> Leaders may field or bowl, but they cannot field on a post or base, and cannot stand in the running line, so that the running route stays clear.</p>
+      <p><strong>Posts and bases.</strong> All post and base positions are taken by Seniors or Company members, not by Leaders.</p>
+      <p><strong>Umpires.</strong> Leaders must not override an umpire's decision, except on safety grounds, where a Leader may always step in.</p>
+      <p><strong>Disputes.</strong> Any dispute over scoring or judging should be brought to the Centre Warden.</p>
+      <p><strong>Spirit of the game.</strong> Being competitive is good, but this competition is for fun. Please play, and support, in that spirit.</p>
 
-  <h2>Leader participation</h2>
-  <p><strong>Batting.</strong> Leaders may bat, but they do not run. When a Leader bats, a Senior or Company member is designated to run the circuit on their behalf.</p>
-  <p><strong>Fielding.</strong> Leaders may field or bowl, but they cannot field on a post or base, and cannot stand in the running line, so that the running route stays clear.</p>
-  <p><strong>Posts and bases.</strong> All post and base positions are taken by Seniors or Company members, not by Leaders.</p>
-  <p><strong>Umpires.</strong> Leaders must not override an umpire's decision, except on safety grounds, where a Leader may always step in.</p>
-  <p><strong>Disputes.</strong> Any dispute over scoring or judging should be brought to the Centre Warden.</p>
-  <p><strong>Spirit of the game.</strong> Being competitive is good, but this competition is for fun. Please play, and support, in that spirit.</p>
-
-  <h2>Umpiring</h2>
-  <p><strong>Three umpires.</strong> Each game has three umpires: one from 6th Doncaster, one from 82nd Belfast and one from 2nd Rochdale.</p>
-  <p><strong>Decisions.</strong> Where a decision is disputed, the three umpires vote on it and the majority decision is final. If the dispute concerns scoring or judging, it should be brought to the Centre Warden rather than argued on the pitch.</p>
-</section>
-
-<section id="safety">
-  <h2>Safeguarding</h2>
-  <p><strong>A no-contact sport.</strong> This is a no-contact competition. Players of all ages and abilities are welcome to take part, but there must be no physical contact between players at any time. Everyone is asked to play safely and look after one another on the pitch.</p>
-  <p><strong>Names and records.</strong> The online scoring and fixtures system records team results only. No individual player, young person or Leader names are stored against teams, fixtures or scores at any point.</p>
-
-  <h2>First aid and incidents</h2>
-  <p><strong>First aid.</strong> First aid is provided by Group First Aiders. At least one Group First Aider and a minimum of two Officers must be present at each game. The Centre Warden provides backup.</p>
-  <p><strong>Incidents.</strong> All incidents, injuries or near-misses must be reported to the Centre Warden as soon as possible so they can be recorded and acted on.</p>
-</section>
-
-<section id="risk">
-  <h2>Risk assessment — Sports Barn</h2>
-  <div class="table-wrap">
-  <table class="risk-table">
-    <tr><th>Hazard</th><th>Control</th></tr>
-    <tr><td>Bat / ball impact</td><td>Clear batting area. Waiting players and spectators kept behind the safety line.</td></tr>
-    <tr><td>Ball rebound off walls</td><td>The ball can rebound off barn walls at speed. Keep fielders and waiting players alert and clear of the batting area and side walls.</td></tr>
-    <tr><td>Thrown / dropped bat</td><td>Batters must drop the bat, not throw it, and drop it inside the batting square. Any player throwing a bat is warned; repeated throwing means a turn is forfeited.</td></tr>
-    <tr><td>Equipment condition</td><td>Check bats, balls and posts before play. Remove any that are cracked, splintered or damaged. Use sprung or safe-top posts where available.</td></tr>
-    <tr><td>Slips / hard surfaces</td><td>Check floor before play. Remove bags, bottles and loose equipment. Suitable footwear. Stop for spills or an unsafe surface.</td></tr>
-    <tr><td>Walls / fixed equipment</td><td>Set boundaries and restricted areas before play. Keep players clear of walls, doors and stored equipment.</td></tr>
-    <tr><td>Lighting</td><td>Confirm the barn is well lit before play. Stop or move if lighting fails or is too poor to see the ball safely.</td></tr>
-    <tr><td>Ventilation / temperature</td><td>Confirm the barn is adequately ventilated before play. Open doors or vents as needed. Stop or move if the space becomes too hot or stuffy.</td></tr>
-    <tr><td>Manual handling</td><td>Posts and equipment carried and set up by adults or older members using safe lifting. Do not overload; use two people for awkward loads.</td></tr>
-    <tr><td>Runner / fielder collision</td><td>Keep the running route clear. Leaders cannot field on posts or bases or stand in the running line.</td></tr>
-    <tr><td>Behaviour / horseplay</td><td>No pushing, barging or horseplay. Umpires and Leaders stop play if behaviour becomes unsafe.</td></tr>
-    <tr><td>Safeguarding / contact</td><td>This is a no-contact sport. Deliberate contact: player disqualified from the game. Three player disqualifications from one team: team disqualified from the game. Temporary match count only; no names retained.</td></tr>
-    <tr><td>Medical / individual needs</td><td>Leaders made aware of any relevant medical conditions in advance. Inhalers, medication and personal needs catered for.</td></tr>
-    <tr><td>First aid</td><td>Group First Aider present. Minimum two Officers. Centre Warden backup.</td></tr>
-    <tr><td>Incidents</td><td>All incidents, injuries or near-misses reported to the Centre Warden.</td></tr>
-    <tr><td>Crowding / access</td><td>Non-playing teams in the waiting area. Keep fire exits and access routes clear at all times.</td></tr>
-  </table>
+      <h2>Umpiring</h2>
+      <p><strong>Three umpires.</strong> Each game has three umpires: one from 7th Doncaster, one from 82nd Belfast and one from 2nd Rochdale.</p>
+      <p><strong>Decisions.</strong> Where a decision is disputed, the three umpires vote on it and the majority decision is final. If the dispute concerns scoring or judging, it should be brought to the Centre Warden rather than argued on the pitch.</p>
+    </div>
   </div>
+</section>
 
-  <h2>Risk assessment — Outside pitch</h2>
-  <div class="table-wrap">
-  <table class="risk-table">
-    <tr><th>Hazard</th><th>Control</th></tr>
-    <tr><td>Ground condition</td><td>Check the pitch and running route for holes, mud, standing water and debris. Move or stop the game if the surface is unsafe.</td></tr>
-    <tr><td>Uneven ground / ankle injury</td><td>Walk the running route before play and mark or avoid any dips, ruts or raised ground. Watch for turned ankles on soft or rough grass.</td></tr>
-    <tr><td>Animal fouling / litter</td><td>Walk the pitch before play and remove any fouling, glass or litter. Do not play over contaminated ground.</td></tr>
-    <tr><td>Weather / visibility</td><td>Monitor weather and light. Move inside or stop if unsafe. Stop for thunder or lightning.</td></tr>
-    <tr><td>Sun / UV exposure</td><td>Encourage sun cream, hats and use of shade between games. Rotate players out of direct sun where possible.</td></tr>
-    <tr><td>Heat / hydration</td><td>Water available throughout. Use the 10-minute changeover for drinks. Stop play if a player becomes unwell.</td></tr>
-    <tr><td>Insects / stings</td><td>Be aware of wasps, bees and biting insects on grass. Keep any known allergy medication and first aid to hand.</td></tr>
-    <tr><td>Thrown / dropped bat</td><td>Batters must drop the bat, not throw it, and drop it inside the batting square. Any player throwing a bat is warned; repeated throwing means a turn is forfeited.</td></tr>
-    <tr><td>Equipment condition</td><td>Check bats, balls and posts before play. Remove any that are cracked, splintered or damaged. Use sprung or safe-top posts where available.</td></tr>
-    <tr><td>Bat / ball and boundaries</td><td>Mark the playing boundary. Spectators and waiting teams stay outside it and clear of the batting area.</td></tr>
-    <tr><td>Slips / trips</td><td>Suitable footwear for grass. Keep the route around posts and bases clear of bags, bottles and equipment.</td></tr>
-    <tr><td>Runner / fielder collision</td><td>Keep the running route clear. Leaders cannot field on posts or bases or stand in the running line.</td></tr>
-    <tr><td>Manual handling</td><td>Posts and equipment carried and set up by adults or older members using safe lifting. Do not overload; use two people for awkward loads.</td></tr>
-    <tr><td>Behaviour / horseplay</td><td>No pushing, barging or horseplay. Umpires and Leaders stop play if behaviour becomes unsafe.</td></tr>
-    <tr><td>Safeguarding / contact</td><td>This is a no-contact sport. Deliberate contact: player disqualified from the game. Three player disqualifications from one team: team disqualified from the game. Temporary match count only; no names retained.</td></tr>
-    <tr><td>Medical / individual needs</td><td>Leaders made aware of any relevant medical conditions in advance. Inhalers, medication and personal needs catered for.</td></tr>
-    <tr><td>First aid</td><td>Group First Aider present. Minimum two Officers. Centre Warden backup.</td></tr>
-    <tr><td>Incidents</td><td>All incidents, injuries or near-misses reported to the Centre Warden.</td></tr>
-  </table>
+<!-- ── View: Safety & First Aid ───────────────────────────── -->
+<section class="view" id="view-safety">
+  <div class="two-col">
+    <div>
+      <h2>Safeguarding</h2>
+      <p><strong>A no-contact sport.</strong> This is a no-contact competition. Players of all ages and abilities are welcome to take part, but there must be no physical contact between players at any time. Everyone is asked to play safely and look after one another on the pitch.</p>
+      <p><strong>Names and records.</strong> The online scoring and fixtures system records team results only. No individual player, young person or Leader names are stored against teams, fixtures or scores at any point.</p>
+    </div>
+    <div>
+      <h2>First aid and incidents</h2>
+      <p><strong>First aid.</strong> A minimum of one First Aider must be present at each game. The Centre Warden backs up first aiders as needed. A minimum of two Officers must be present at each game.</p>
+      <p><strong>Incidents.</strong> All incidents, injuries or near-misses must be reported to the Centre Warden as soon as possible so they can be recorded and acted on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── View: Risk Assessments ─────────────────────────────── -->
+<section class="view" id="view-risk">
+  <div class="two-col">
+    <div>
+      <h2>Risk assessment — Sports Barn</h2>
+      <div class="table-wrap">
+      <table class="risk-table">
+        <tr><th>Hazard</th><th>Control</th></tr>
+        <tr><td>Bat / ball impact</td><td>Clear batting area. Waiting players and spectators kept behind the safety line.</td></tr>
+        <tr><td>Ball rebound off walls</td><td>The ball can rebound off barn walls at speed. Keep fielders and waiting players alert and clear of the batting area and side walls.</td></tr>
+        <tr><td>Thrown / dropped bat</td><td>Batters must drop the bat, not throw it, and drop it inside the batting square. Any player throwing a bat is warned; repeated throwing means a turn is forfeited.</td></tr>
+        <tr><td>Equipment condition</td><td>Check bats, balls and posts before play. Remove any that are cracked, splintered or damaged. Use sprung or safe-top posts where available.</td></tr>
+        <tr><td>Slips / hard surfaces</td><td>Check floor before play. Remove bags, bottles and loose equipment. Suitable footwear. Stop for spills or an unsafe surface.</td></tr>
+        <tr><td>Walls / fixed equipment</td><td>Set boundaries and restricted areas before play. Keep players clear of walls, doors and stored equipment.</td></tr>
+        <tr><td>Lighting</td><td>Confirm the barn is well lit before play. Stop or move if lighting fails or is too poor to see the ball safely.</td></tr>
+        <tr><td>Ventilation / temperature</td><td>Confirm the barn is adequately ventilated before play. Open doors or vents as needed. Stop or move if the space becomes too hot or stuffy.</td></tr>
+        <tr><td>Manual handling</td><td>Posts and equipment carried and set up by adults or older members using safe lifting. Do not overload; use two people for awkward loads.</td></tr>
+        <tr><td>Runner / fielder collision</td><td>Keep the running route clear. Leaders cannot field on posts or bases or stand in the running line.</td></tr>
+        <tr><td>Behaviour / horseplay</td><td>No pushing, barging or horseplay. Umpires and Leaders stop play if behaviour becomes unsafe. Minimum two Officers at each game.</td></tr>
+        <tr><td>Safeguarding / contact</td><td>This is a no-contact sport. Deliberate contact: player disqualified from the game. Three player disqualifications from one team: team disqualified from the game. Temporary match count only; no names retained.</td></tr>
+        <tr><td>Medical / individual needs</td><td>Leaders made aware of any relevant medical conditions in advance. Inhalers, medication and personal needs catered for.</td></tr>
+        <tr><td>First aid</td><td>Minimum 1 First Aider present at each game. Centre Warden to back up first aiders as needed.</td></tr>
+        <tr><td>Incidents</td><td>All incidents, injuries or near-misses reported to the Centre Warden.</td></tr>
+        <tr><td>Crowding / access</td><td>Non-playing teams in the waiting area. Keep fire exits and access routes clear at all times.</td></tr>
+      </table>
+      </div>
+    </div>
+    <div>
+      <h2>Risk assessment — Outside pitch</h2>
+      <div class="table-wrap">
+      <table class="risk-table">
+        <tr><th>Hazard</th><th>Control</th></tr>
+        <tr><td>Ground condition</td><td>Check the pitch and running route for holes, mud, standing water and debris. Move or stop the game if the surface is unsafe.</td></tr>
+        <tr><td>Uneven ground / ankle injury</td><td>Walk the running route before play and mark or avoid any dips, ruts or raised ground. Watch for turned ankles on soft or rough grass.</td></tr>
+        <tr><td>Animal fouling / litter</td><td>Walk the pitch before play and remove any fouling, glass or litter. Do not play over contaminated ground.</td></tr>
+        <tr><td>Weather / visibility</td><td>Monitor weather and light. Move inside or stop if unsafe. Stop for thunder or lightning.</td></tr>
+        <tr><td>Sun / UV exposure</td><td>Encourage sun cream, hats and use of shade between games. Rotate players out of direct sun where possible.</td></tr>
+        <tr><td>Heat / hydration</td><td>Water available throughout. Use the 10-minute changeover for drinks. Stop play if a player becomes unwell.</td></tr>
+        <tr><td>Insects / stings</td><td>Be aware of wasps, bees and biting insects on grass. Keep any known allergy medication and first aid to hand.</td></tr>
+        <tr><td>Thrown / dropped bat</td><td>Batters must drop the bat, not throw it, and drop it inside the batting square. Any player throwing a bat is warned; repeated throwing means a turn is forfeited.</td></tr>
+        <tr><td>Equipment condition</td><td>Check bats, balls and posts before play. Remove any that are cracked, splintered or damaged. Use sprung or safe-top posts where available.</td></tr>
+        <tr><td>Bat / ball and boundaries</td><td>Mark the playing boundary. Spectators and waiting teams stay outside it and clear of the batting area.</td></tr>
+        <tr><td>Slips / trips</td><td>Suitable footwear for grass. Keep the route around posts and bases clear of bags, bottles and equipment.</td></tr>
+        <tr><td>Runner / fielder collision</td><td>Keep the running route clear. Leaders cannot field on posts or bases or stand in the running line.</td></tr>
+        <tr><td>Manual handling</td><td>Posts and equipment carried and set up by adults or older members using safe lifting. Do not overload; use two people for awkward loads.</td></tr>
+        <tr><td>Behaviour / horseplay</td><td>No pushing, barging or horseplay. Umpires and Leaders stop play if behaviour becomes unsafe. Minimum two Officers at each game.</td></tr>
+        <tr><td>Safeguarding / contact</td><td>This is a no-contact sport. Deliberate contact: player disqualified from the game. Three player disqualifications from one team: team disqualified from the game. Temporary match count only; no names retained.</td></tr>
+        <tr><td>Medical / individual needs</td><td>Leaders made aware of any relevant medical conditions in advance. Inhalers, medication and personal needs catered for.</td></tr>
+        <tr><td>First aid</td><td>Minimum 1 First Aider present at each game. Centre Warden to back up first aiders as needed.</td></tr>
+        <tr><td>Incidents</td><td>All incidents, injuries or near-misses reported to the Centre Warden.</td></tr>
+      </table>
+      </div>
+    </div>
   </div>
 </section>
 
 </main>
 
 <footer class="site-foot">
+  <div class="foot-credit">Organised by Ashley, 7th Doncaster Boys' Brigade</div>
   <a href="Rounders_Competition_Team_Guide.pdf" download>Download Team Guide</a>
   <span>&middot;</span>
   <a href="scoring.html">Organiser</a>

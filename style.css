@@ -10,19 +10,10 @@ body {
   line-height: 1.55;
 }
 
-/* Sticky glass nav (main site positions it differently; here it just sticks) */
-.nav-glass {
-  position: sticky;
-  top: 0;
-  z-index: 1030;
-}
-.nav-logo { height: 72px; }
-@media (max-width: 575.98px) { .nav-logo { height: 56px; } }
-
-/* Hero */
+/* ── Title block (above the nav bar) ─────────────────────── */
 .comp-hero {
-  margin: 16px;
-  padding: 28px 20px;
+  margin: 14px clamp(12px, 2vw, 28px) 12px;
+  padding: 22px clamp(16px, 3vw, 40px);
   text-align: center;
   border-radius: 1.25rem;
   background: var(--hero-bg);
@@ -30,20 +21,45 @@ body {
   border: 1px solid var(--glass-border);
   box-shadow: var(--hero-shadow, 0 20px 48px rgba(15, 23, 42, 0.16));
 }
+.hero-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 32px);
+  flex-wrap: wrap;
+}
+/* Desktop: use the full width — logo and title left, chips right */
+@media (min-width: 992px) {
+  .comp-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    text-align: left;
+  }
+  .hero-row { justify-content: flex-start; }
+  .chips { margin-top: 0; justify-content: flex-end; }
+}
+.hero-logo {
+  height: clamp(84px, 12vw, 130px);
+  width: auto;
+}
+.hero-text-block { text-align: left; }
+@media (max-width: 575.98px) { .hero-text-block { text-align: center; } }
 .comp-hero h1 {
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
   color: var(--hero-text);
   margin-bottom: 4px;
 }
-.comp-hero .strap { color: var(--hero-muted); font-size: 0.92rem; margin: 0; }
-.comp-hero .strap a { color: var(--hero-text); }
+.comp-hero .strap { color: var(--hero-muted); font-size: 0.95rem; margin: 0; }
+.comp-hero .organiser-credit { color: var(--hero-accent, #d1a928); font-weight: 600; }
 
 .chips {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 16px;
+  margin-top: 14px;
   flex-wrap: wrap;
 }
 .chip {
@@ -57,10 +73,81 @@ body {
   flex-direction: column;
   min-width: 104px;
 }
-.chip strong { font-size: 0.98rem; color: var(--hero-text); }
-.chip span { font-size: 0.72rem; color: var(--hero-muted); }
+.chip-big { font-size: 0.98rem; font-weight: 600; color: var(--hero-text); }
+.chip-sub { font-size: 0.72rem; color: var(--hero-muted); }
 
-main { max-width: 820px; margin: 0 auto; padding: 8px 16px 24px; }
+/* ── Pill nav (booking-app section nav pattern) ──────────── */
+.pill-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 0.6rem;
+  padding: 0.7rem clamp(12px, 2vw, 28px);
+  background: linear-gradient(135deg, rgba(25, 51, 96, 0.94) 0%, rgba(34, 75, 142, 0.90) 55%, rgba(25, 51, 96, 0.94) 100%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.6rem;
+  padding: 0.55rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  background: rgba(255, 255, 255, 0.90);
+  color: #172033;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+.nav-pill:hover,
+.nav-pill:focus-visible {
+  background: #ffffff;
+  color: #172033;
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.nav-pill.is-active {
+  background: linear-gradient(135deg, #d9b23a, #c69c1f);
+  color: #1c2333;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+.nav-pill i { font-size: 0.9em; }
+
+a.nav-pill.pill-gold {
+  background: linear-gradient(135deg, rgba(217, 178, 58, 0.96), rgba(198, 156, 31, 0.94));
+  color: #1c2333;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+a.nav-pill.pill-gold:hover,
+a.nav-pill.pill-gold:focus-visible {
+  background: linear-gradient(135deg, #e5c04a, #d1a928);
+  color: #1c2333;
+}
+
+/* ── Views ───────────────────────────────────────────────── */
+main {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 16px clamp(16px, 3vw, 48px) 24px;
+}
+main .view { display: none; }
+main .view.is-visible { display: block; }
 
 section { margin-bottom: 28px; }
 
@@ -68,7 +155,7 @@ h2 {
   font-family: var(--font-heading);
   color: var(--text-color);
   font-size: 1.3rem;
-  margin: 26px 0 10px;
+  margin: 22px 0 10px;
   padding-bottom: 6px;
   border-bottom: 2px solid var(--hero-accent, #d1a928);
 }
@@ -76,6 +163,15 @@ h3 { color: var(--text-color); font-size: 1.05rem; margin: 18px 0 8px; font-weig
 
 p { margin: 8px 0; }
 .note { color: var(--muted); font-size: 0.85rem; }
+
+/* Layout grids — days stack vertically; each day's games flow horizontally */
+.days-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.fixture-list { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); }
+.two-col { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1000px) { .two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.standings { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 680px) { .standings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.days-grid > div { min-width: 0; }
 
 /* Grand Final banner */
 .final-banner {
@@ -85,7 +181,7 @@ p { margin: 8px 0; }
   border-radius: 1.25rem;
   padding: 20px 16px;
   text-align: center;
-  margin-top: 16px;
+  margin-top: 8px;
   box-shadow: var(--glass-shadow-strong);
 }
 .final-label {
@@ -123,8 +219,8 @@ p { margin: 8px 0; }
 .fx-team .score { font-variant-numeric: tabular-nums; min-width: 2ch; text-align: right; }
 
 .tag {
-  background: var(--primary);
-  color: #fff;
+  background: var(--surface-bg-strong);
+  border: 1px solid var(--primary);
   border-radius: 0.5rem;
   font-size: 0.68rem;
   padding: 1px 8px;
@@ -132,9 +228,6 @@ p { margin: 8px 0; }
 }
 
 /* Tables — glass */
-.standings { display: grid; gap: 16px; }
-@media (min-width: 680px) { .standings { grid-template-columns: 1fr 1fr; } }
-
 .table-wrap { overflow-x: auto; border-radius: 1rem; }
 
 main table {
@@ -150,12 +243,20 @@ main table {
   box-shadow: var(--surface-shadow);
 }
 main th, main td { padding: 8px 9px; text-align: center; border-bottom: 1px solid var(--surface-border); }
-main th { background: var(--primary); color: #fff; font-size: 0.78rem; }
+/* theme-overrides.css forces th/span text to --text-color, so headers and tags
+   sit on light surfaces instead of solid navy. */
+main th {
+  background: var(--surface-bg-strong);
+  font-size: 0.78rem;
+  border-bottom: 2px solid var(--primary);
+}
 main tr:last-child td { border-bottom: none; }
 main td.tname, main th.tname { text-align: left; }
 
 .risk-table th, .risk-table td { text-align: left; vertical-align: top; }
 .risk-table td:first-child { font-weight: 600; }
+.rain-table th, .rain-table td { text-align: left; }
+.rain-table td:first-child { white-space: nowrap; }
 
 /* Footer */
 .site-foot {
@@ -166,11 +267,13 @@ main td.tname, main th.tname { text-align: left; }
 }
 .site-foot a { color: var(--text-color); }
 .site-foot span { margin: 0 6px; }
+.foot-credit { margin-bottom: 6px; }
 
-/* Scoring page */
+/* ── Scoring page ────────────────────────────────────────── */
 .token-label { font-weight: 600; display: block; margin-bottom: 4px; }
 #token {
   width: 100%;
+  max-width: 560px;
   padding: 10px 14px;
   background: var(--surface-bg);
   color: var(--text-color);
@@ -178,7 +281,12 @@ main td.tname, main th.tname { text-align: left; }
   border-radius: 1rem;
   font-size: 1rem;
 }
-.score-entry { margin-bottom: 10px; }
+.score-day-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.score-entry { margin-bottom: 0; }
 .score-entry input {
   width: 88px;
   padding: 8px 10px;
@@ -192,31 +300,32 @@ main td.tname, main th.tname { text-align: left; }
 .save-bar {
   position: sticky;
   bottom: 0;
-  background: var(--panel-bg);
+  z-index: 1030;
+  background: linear-gradient(135deg, rgba(25, 51, 96, 0.94), rgba(34, 75, 142, 0.90));
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
-  border-top: 1px solid var(--surface-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 12px 16px;
-  margin: 0 -16px;
+  padding: 12px clamp(16px, 3vw, 48px);
+  margin: 0 calc(clamp(16px, 3vw, 48px) * -1);
 }
-.save-bar #status { font-size: 0.85rem; color: var(--muted); }
+.save-bar #status { font-size: 0.85rem; color: #ffffff; }
 .save-bar button {
-  background: var(--primary);
-  color: #fff;
-  border: 1px solid var(--glass-border);
-  border-radius: 1rem;
-  padding: 10px 22px;
+  background: linear-gradient(135deg, #d9b23a, #c69c1f);
+  color: #1c2333;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  padding: 10px 24px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
 }
 .save-bar button:disabled { opacity: 0.5; }
 
-/* Accessibility preference helpers (as on the main website / booking app) */
+/* ── Accessibility preference helpers (as on the main website) ── */
 a.underline-links { text-decoration: underline !important; }
 html[data-readable-font="true"] {
   --font-body: "OpenDyslexic", Arial, sans-serif;
