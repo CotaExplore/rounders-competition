@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organiser Scoring — Rounders Competition</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Organiser scoring</h1>
+  <p class="strap"><a class="header-link" href="index.html">Back to public site</a></p>
+</header>
+
+<main>
+
+<section>
+  <label class="token-label" for="token">GitHub personal access token</label>
+  <input type="password" id="token" autocomplete="off"
+         placeholder="Paste token to enable saving">
+  <p class="note">The token needs permission to update this repository. It is kept in
+  memory only — never committed, logged or stored. Scores are entered in halves
+  (0.5 = half a rounder). The public page shows new scores on its next load,
+  about a minute after saving.</p>
+</section>
+
+<section>
+  <h3>Wednesday</h3>
+  <div id="score-wednesday"></div>
+  <h3>Thursday</h3>
+  <div id="score-thursday"></div>
+  <h3>Final</h3>
+  <div id="score-final"></div>
+</section>
+
+<div class="save-bar">
+  <span id="status">Loading scores&hellip;</span>
+  <button id="save" disabled>Save scores</button>
+</div>
+
+</main>
+
+<script src="data.js"></script>
+<script src="scoring.js"></script>
+</body>
+</html>
