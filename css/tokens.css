@@ -1,0 +1,417 @@
+:root{
+  --primary: #224B8E;
+  --accent: #5D99D2;
+
+  --bg-color: #f6fbff;
+  --bg-fade: #f6fbff;
+
+  --panel-bg: rgba(255,255,255,0.66);
+  --text-color: #172033;
+  --muted: rgba(23,32,51,0.9);
+  --surface-bg: rgba(255,255,255,0.82);
+  --surface-bg-strong: rgba(255,255,255,0.90);
+  --surface-border: rgba(23,32,51,0.12);
+  --surface-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+--btn-glass-bg: rgba(34,75,142,0.14);
+--btn-glass-bg-strong: rgba(34,75,142,0.22);
+  --glass-blur: 28px;
+  --glass-saturate: 140%;
+  --glass-brightness: 120%;
+  --focus-color: rgba(34,75,142,0.95);
+  --primary-rgb: 10 132 255; 
+  --btn-padding-y: .65rem;
+  --btn-padding-x: 1.6rem;
+  --btn-radius: 1rem;
+
+--hero-bg: linear-gradient(135deg, #1f5fa8 0%, #2369b2 55%, #1d5a9c 100%);
+  --hero-text: #ffffff;
+  --hero-muted: rgba(255, 255, 255, 0.88);
+  --hero-accent: #d1a928;
+
+  --hero-pill-bg: rgba(255, 255, 255, 0.10);
+  --hero-pill-border: rgba(255, 255, 255, 0.18);
+
+  --hero-btn-secondary-bg: rgba(255, 255, 255, 0.08);
+  --hero-btn-secondary-border: rgba(255, 255, 255, 0.26);
+  --hero-btn-secondary-text: #ffffff;
+
+  --hero-thumb-border: rgba(255, 255, 255, 0.12);
+  --hero-logo-bg: transparent;
+  --hero-shadow: 0 20px 48px rgba(15, 23, 42, 0.16);
+
+--glass-bg: rgba(255, 255, 255, 0.12);
+--glass-bg-strong: rgba(255, 255, 255, 0.18);
+
+--glass-border: rgba(255, 255, 255, 0.25);
+--glass-border-strong: rgba(255, 255, 255, 0.4);
+
+--glass-shadow:
+  0 4px 18px rgba(0, 0, 0, 0.25),
+  inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+--glass-shadow-strong:
+  0 6px 24px rgba(0, 0, 0, 0.35),
+  inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+
+
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: Merriweather, Georgia, serif;
+
+  --overlay-color: rgba(255,255,255,0.25);
+  --overlay-gradient: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.12) 55%, rgba(255,255,255,0.06) 100%);
+  --fade-speed: 0.5s;
+
+  
+  --shimmer-color: rgba(255,255,255,0.35);
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/opendyslexic/OpenDyslexic-Regular.woff2") format("woff2"),
+       url("../assets/fonts/opendyslexic/OpenDyslexic-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/opendyslexic/OpenDyslexic-Bold.woff2") format("woff2"),
+       url("../assets/fonts/opendyslexic/OpenDyslexic-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/opendyslexic/OpenDyslexic-Italic.woff2") format("woff2"),
+       url("../assets/fonts/opendyslexic/OpenDyslexic-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/opendyslexic/OpenDyslexic-BoldItalic.woff2") format("woff2"),
+       url("../assets/fonts/opendyslexic/OpenDyslexic-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+html[data-theme="light"] {
+  /* Hero: deep BB navy, gold accent throughout */
+  --hero-bg: linear-gradient(135deg, #19387a 0%, #224B8E 55%, #1e4585 100%);
+  --hero-text: #ffffff;
+  --hero-muted: rgba(255, 255, 255, 0.92);
+  --hero-accent: #d1a928;
+
+  --hero-pill-bg: rgba(209, 169, 40, 0.12);
+  --hero-pill-border: rgba(209, 169, 40, 0.30);
+
+  --hero-btn-secondary-bg: rgba(255, 255, 255, 0.14);
+  --hero-btn-secondary-border: rgba(255, 255, 255, 0.32);
+  --hero-btn-secondary-text: #ffffff;
+
+  --hero-thumb-border: rgba(255, 255, 255, 0.22);
+  --hero-logo-bg: transparent;
+  --hero-shadow: 0 26px 60px rgba(17, 52, 99, 0.28);
+
+  --bg-fade: #f5f7fc;
+  --bg-color: linear-gradient(180deg, #f5f7fc 0%, #edf0f8 45%, #f5f7fc 100%);
+  --panel-bg: rgba(255, 255, 255, 0.72);
+  --text-color: #172033;
+  --muted: rgba(23, 32, 51, 0.82);
+  --surface-bg: rgba(255, 255, 255, 0.84);
+  --surface-bg-strong: rgba(255, 255, 255, 0.92);
+  --surface-border: rgba(23, 32, 51, 0.12);
+  --surface-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  --overlay-color: rgba(255, 255, 255, 0.18);
+  --overlay-gradient: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.10) 0%,
+      rgba(255, 255, 255, 0.06) 55%,
+      rgba(255, 255, 255, 0.04) 100%);
+  --shimmer-color: rgba(255, 255, 255, 0.35);
+  --scrollbar-track: rgba(0, 0, 0, 0.08);
+  --scrollbar-thumb: rgba(34, 75, 142, 0.75);
+}
+
+html[data-theme="dark"]{
+    --hero-bg: linear-gradient(135deg, #0f2748 0%, #173a67 55%, #0d223f 100%);
+      --hero-text: #f3f7ff;
+      --hero-muted: rgba(243, 247, 255, 0.82);
+      --hero-accent: #d1a928;
+      --hero-pill-bg: rgba(255, 255, 255, 0.08);
+      --hero-pill-border: rgba(255, 255, 255, 0.14);
+      --hero-btn-secondary-bg: rgba(255, 255, 255, 0.06);
+      --hero-btn-secondary-border: rgba(255, 255, 255, 0.18);
+      --hero-btn-secondary-text: #f3f7ff;
+      --hero-thumb-border: rgba(255, 255, 255, 0.10);
+      --hero-logo-bg: transparent;
+    --bg-fade: #05060a;
+  --bg-color: linear-gradient(180deg, #05060a 0%, #07101f 45%, #05060a 100%);
+  --panel-bg: rgba(20,20,22,0.58);
+  --text-color: #eaf4ff;
+  --muted: rgba(234,244,255,0.78);
+  --surface-bg: rgba(18,24,36,0.82);
+  --surface-bg-strong: rgba(24,32,46,0.90);
+  --surface-border: rgba(234,244,255,0.12);
+  --surface-shadow: 0 12px 32px rgba(0,0,0,0.28);
+  --overlay-color: rgba(2,8,24,0.50);
+  --overlay-gradient: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.12) 0%,
+    rgba(0,0,0,0.28) 55%,
+    rgba(0,0,0,0.46) 100%
+  );
+  --shimmer-color: rgba(255,255,255,0.22);
+  --scrollbar-track: rgba(255,255,255,0.08);
+--scrollbar-thumb: rgba(255,255,255,0.35);
+}
+
+html[data-theme="dyspraxia"]{
+   --font-body: "OpenDyslexic", Arial, sans-serif;
+  --surface-bg: rgba(236,231,221,0.88);
+  --surface-bg-strong: rgba(236,231,221,0.94);
+  --surface-border: rgba(120,112,92,0.24);
+  --surface-shadow: 0 10px 28px rgba(24,20,14,0.10);
+
+--hero-bg: linear-gradient(135deg, #6e5a40 0%, #8b6f4d 52%, #b49366 100%);
+  --hero-text: #fff8ee;
+  --hero-muted: rgba(255, 248, 238, 0.84);
+  --hero-accent: #d8c39a;
+
+  --hero-pill-bg: rgba(255, 248, 238, 0.12);
+  --hero-pill-border: rgba(255, 248, 238, 0.22);
+
+  --hero-btn-secondary-bg: rgba(255, 248, 238, 0.14);
+  --hero-btn-secondary-border: rgba(255, 248, 238, 0.30);
+  --hero-btn-secondary-text: #fff8ee;
+
+  --hero-thumb-border: rgba(255, 248, 238, 0.16);
+  --hero-logo-bg: transparent;
+  --hero-shadow: 0 20px 48px rgba(58, 43, 26, 0.24);
+  --font-size-base: 0.85rem;
+  --line-height-base: 1.65;
+  
+   --bg-fade: #efe9dd;
+  --bg-color: linear-gradient(180deg, #efe9dd 0%, #e1d8c8 52%, #eee7db 100%);
+
+  --panel-bg: rgba(236,231,221,0.82);
+
+  --text-color: #201d16;
+  --muted: rgba(32,29,22,0.74);
+
+  
+  --overlay-color: rgba(95,88,70,0.06);
+  --overlay-gradient: linear-gradient(
+    180deg,
+    rgba(252,251,247,0.08) 0%,
+    rgba(155,146,122,0.14) 58%,
+    rgba(95,88,70,0.18) 100%
+  );
+
+  --shimmer-color: rgba(0,0,0,0.06);
+
+  --glass-blur: 24px;
+  --glass-saturate: 110%;
+  --btn-padding-y: 0.9rem;
+  --btn-padding-x: 2rem;
+  --btn-radius: 1.2rem;
+
+  --fade-speed: 0.6s;
+  
+--scrollbar-track: rgba(0,0,0,0.08);
+--scrollbar-thumb: rgba(34,75,142,0.75); 
+}
+
+[data-theme="dyspraxia"] .glass-panel,
+[data-theme="dyspraxia"] #routeInfoBox,
+[data-theme="dyspraxia"] #attractionInfoBox {
+  background: var(--panel-bg);
+  border: 1px solid rgba(120,112,92,0.34);
+  color: var(--text-color);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  box-shadow: 0 6px 24px rgba(24,20,14,0.16);
+}
+
+[data-theme="dyspraxia"] .btn-glass,
+[data-theme="dyspraxia"] .church-btn {
+  background: rgba(238,232,220,0.72);
+  color: var(--text-color);
+  border: 1px solid rgba(120,112,92,0.38);
+}
+
+[data-theme="dyspraxia"] .btn-glass:hover,
+[data-theme="dyspraxia"] .church-btn:hover {
+  background: rgba(232,226,212,0.86);
+  transform: scale(1.04);
+}
+
+[data-theme="dyspraxia"] .church-btn.active {
+  background: rgba(160,150,120,0.22);
+  border: 1px solid rgba(160,150,120,0.44);
+  box-shadow: 0 0 10px rgba(24,20,14,0.18);
+}
+
+html[data-theme="spring"] {
+  --hero-bg: linear-gradient(135deg, #7e83c9 0%, #8fc45e 50%, #78acd8 100%);
+    --hero-text: #ffffff;
+    --hero-muted: rgba(255, 255, 255, 0.88);
+    --hero-accent: #cfc6ff;
+  
+    --hero-pill-bg: rgba(255, 255, 255, 0.12);
+    --hero-pill-border: rgba(255, 255, 255, 0.22);
+  
+    --hero-btn-secondary-bg: rgba(255, 255, 255, 0.14);
+    --hero-btn-secondary-border: rgba(255, 255, 255, 0.26);
+    --hero-btn-secondary-text: #ffffff;
+  
+    --hero-thumb-border: rgba(255, 255, 255, 0.16);
+    --hero-logo-bg: transparent;
+    --hero-shadow: 0 20px 48px rgba(74, 102, 88, 0.18);
+
+  --bg-fade: #fbfaff;
+  --bg-color: linear-gradient(180deg, #fbfaff 0%, #f1ffe9 52%, #fbfaff 100%);
+  --panel-bg: rgba(255, 255, 255, 0.70);
+  --text-color: #172033;
+  --muted: rgba(23, 32, 51, 0.82);
+  --surface-bg: rgba(255, 255, 255, 0.84);
+  --surface-bg-strong: rgba(255, 255, 255, 0.92);
+  --surface-border: rgba(23, 32, 51, 0.12);
+  --surface-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  --overlay-color: rgba(170, 135, 255, 0.10);
+  --overlay-gradient: linear-gradient(180deg,
+      rgba(252, 250, 255, 0.10) 0%,
+      rgba(175, 205, 105, 0.18) 52%,
+      rgba(170, 135, 255, 0.20) 100%);
+  --shimmer-color: rgba(255, 255, 255, 0.30);
+  --scrollbar-track: rgba(0, 0, 0, 0.08);
+  --scrollbar-thumb: rgba(34, 75, 142, 0.75);
+}
+
+html[data-theme="summer"] {
+  --hero-bg: linear-gradient(135deg, #f0b04e 0%, #ffd978 52%, #e58d41 100%);
+  --hero-text: #201a12;
+  --hero-muted: rgba(32, 26, 18, 0.82);
+  --hero-accent: #fff7e6;
+  --hero-pill-bg: rgba(255, 255, 255, 0.24);
+  --hero-pill-border: rgba(32, 26, 18, 0.12);
+  --hero-btn-secondary-bg: rgba(255, 255, 255, 0.26);
+  --hero-btn-secondary-border: rgba(32, 26, 18, 0.16);
+  --hero-btn-secondary-text: #201a12;
+  --hero-thumb-border: rgba(32, 26, 18, 0.12);
+  --hero-logo-bg: transparent;
+
+  --bg-fade: #fffaf0;
+  --bg-color: linear-gradient(180deg, #fffaf0 0%, #fff3dc 52%, #fff9ef 100%);
+  --panel-bg: rgba(255, 255, 255, 0.66);
+  --text-color: #201a12;
+  --muted: rgba(32, 26, 18, 0.75);
+  --surface-bg: rgba(255, 255, 255, 0.84);
+  --surface-bg-strong: rgba(255, 255, 255, 0.92);
+  --surface-border: rgba(32, 26, 18, 0.12);
+  --surface-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  --overlay-color: rgba(255, 190, 80, 0.10);
+  --shimmer-color: rgba(255, 255, 255, 0.28);
+  --scrollbar-track: rgba(0, 0, 0, 0.08);
+  --scrollbar-thumb: rgba(34, 75, 142, 0.75);
+}
+
+html[data-theme="autumn"] {
+  --hero-bg: linear-gradient(135deg, #4a2318 0%, #7a3722 55%, #b85a2c 100%);
+  --hero-text: #fff3ea;
+  --hero-muted: rgba(255, 243, 234, 0.82);
+  --hero-accent: #d9a15d;
+  --hero-pill-bg: rgba(255, 255, 255, 0.08);
+  --hero-pill-border: rgba(255, 243, 234, 0.18);
+  --hero-btn-secondary-bg: rgba(255, 255, 255, 0.08);
+  --hero-btn-secondary-border: rgba(255, 243, 234, 0.18);
+  --hero-btn-secondary-text: #fff3ea;
+  --hero-thumb-border: rgba(255, 243, 234, 0.12);
+  --hero-logo-bg: transparent;
+
+  --bg-fade: #120a08;
+  --bg-color: linear-gradient(180deg, #120a08 0%, #24130e 55%, #0f0807 100%);
+  --panel-bg: rgba(255, 210, 180, 0.12);
+  --text-color: #fff3ea;
+  --muted: rgba(255, 243, 234, 0.78);
+  --surface-bg: rgba(62, 32, 22, 0.82);
+  --surface-bg-strong: rgba(74, 38, 26, 0.90);
+  --surface-border: rgba(255, 243, 234, 0.12);
+  --surface-shadow: 0 12px 32px rgba(0, 0, 0, 0.26);
+  --overlay-color: rgba(255, 140, 80, 0.10);
+  --shimmer-color: rgba(255, 255, 255, 0.20);
+  --scrollbar-track: rgba(255, 255, 255, 0.08);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.35);
+}
+
+html[data-theme="winter"] {
+  --hero-bg: linear-gradient(135deg, #10314d 0%, #1a4b73 55%, #4c8fc0 100%);
+  --hero-text: #eaf4ff;
+  --hero-muted: rgba(234, 244, 255, 0.84);
+  --hero-accent: #d7ecff;
+  --hero-pill-bg: rgba(255, 255, 255, 0.08);
+  --hero-pill-border: rgba(234, 244, 255, 0.22);
+  --hero-btn-secondary-bg: rgba(255, 255, 255, 0.08);
+  --hero-btn-secondary-border: rgba(234, 244, 255, 0.22);
+  --hero-btn-secondary-text: #eaf4ff;
+  --hero-thumb-border: rgba(234, 244, 255, 0.14);
+  --hero-logo-bg: transparent;
+
+  --bg-fade: #07131f;
+  --bg-color: linear-gradient(180deg, #07131f 0%, #0b1f33 50%, #06101a 100%);
+  --panel-bg: rgba(178, 205, 235, 0.20);
+  --text-color: #eaf4ff;
+  --muted: rgba(234, 244, 255, 0.82);
+  --surface-bg: rgba(16, 34, 54, 0.84);
+  --surface-bg-strong: rgba(22, 44, 68, 0.92);
+  --surface-border: rgba(234, 244, 255, 0.14);
+  --surface-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  --overlay-color: rgba(120, 170, 255, 0.12);
+  --shimmer-color: rgba(255, 255, 255, 0.22);
+  --scrollbar-track: rgba(255, 255, 255, 0.08);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="dyspraxia"] body{
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+html[data-theme="dyspraxia"] .page-hero__title,
+html[data-theme="dyspraxia"] .page-hero__eyebrow,
+html[data-theme="dyspraxia"] .page-hero__lead{
+  font-family: var(--font-body);
+}
+[data-theme="dyspraxia"] h1,
+[data-theme="dyspraxia"] h2,
+[data-theme="dyspraxia"] h3,
+[data-theme="dyspraxia"] h4{
+  font-size: 0.95em;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  
+}
+
+.text-xxs {
+  font-size: 0.65rem;
+  
+}
+/* put this BELOW the existing hub-hero feature rules */
+
+html[data-theme="dyspraxia"] [data-global-hero] [data-hero-title] {
+  color: #f7efdf !important;
+}
+
+html[data-theme="dyspraxia"] [data-global-hero] [data-hero-eyebrow],
+html[data-theme="dyspraxia"] [data-global-hero] [data-hero-intro],
+html[data-theme="dyspraxia"] [data-global-hero] [data-hero-meta],
+html[data-theme="dyspraxia"] [data-global-hero] .small-muted {
+  color: rgba(247, 239, 223, 0.84) !important;
+}

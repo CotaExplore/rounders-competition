@@ -1,14 +1,14 @@
 // Competition data — teams, fixtures, standings. Source: Team Guide.
 
 const TEAMS = {
-  "roch-a": { name: "2nd Rochdale A", short: "Rochdale A", group: "A" },
-  "bel-a":  { name: "82nd Belfast A", short: "Belfast A", group: "A" },
-  "don-a":  { name: "6th Doncaster A", short: "Doncaster A", group: "A" },
-  "don-b":  { name: "6th Doncaster B", short: "Doncaster B", group: "A" },
-  "misc":   { name: "Misc (2nd Rochdale / 82nd Belfast)", short: "Misc", group: "B" },
-  "bel-b":  { name: "82nd Belfast B", short: "Belfast B", group: "B" },
-  "bel-c":  { name: "82nd Belfast C", short: "Belfast C", group: "B" },
-  "don-c":  { name: "6th Doncaster C", short: "Doncaster C", group: "B" }
+  "roch-a": { name: "2nd Rochdale A", short: "2nd Rochdale A", group: "A" },
+  "bel-a":  { name: "82nd Belfast A", short: "82nd Belfast A", group: "A" },
+  "don-a":  { name: "6th Doncaster A", short: "6th Doncaster A", group: "A" },
+  "don-b":  { name: "6th Doncaster B", short: "6th Doncaster B", group: "A" },
+  "misc":   { name: "Rochdale/Belfast Misc", short: "Rochdale/Belfast Misc", group: "B" },
+  "bel-b":  { name: "82nd Belfast B", short: "82nd Belfast B", group: "B" },
+  "bel-c":  { name: "82nd Belfast C", short: "82nd Belfast C", group: "B" },
+  "don-c":  { name: "6th Doncaster C", short: "6th Doncaster C", group: "B" }
 };
 
 const FIXTURES = [

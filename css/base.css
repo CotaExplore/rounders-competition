@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --base-font-size: 16px;
+  font-size: var(--base-font-size);
+  height: 100%;
+}
+
+body{
+  font-family: var(--font-body);
+  color: var(--text-color);
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  
+  background: var(--bg-color);
+
+  
+  background-repeat: no-repeat;
+  background-size: 120% 180%;   
+  background-position: 50% 0%;
+  background-attachment: fixed; 
+}
+
+body::before{
+  opacity: 0.06;        
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer,
+#site-footer {
+  flex-shrink: 0;
+}
+
+main .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Non-home pages: main.container must clear the fixed navbar.
+   .container specificity beats the `main` rule so we override it here. */
+body:not(.home) main.container,
+body:not(.home) main.container-fluid {
+  padding-top: var(--nav-height, 162px);
+}
+
+.theme-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: var(--overlay-gradient, var(--overlay-color));
+  pointer-events: none;
+  transition: background-color var(--fade-speed) ease, background-image var(--fade-speed) ease;
+}
+
+html.reduce-motion .theme-overlay {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-overlay { transition: none; }
+}
